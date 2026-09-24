@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piidiii.exe 🎂</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+body{background:#f6efe5;color:#3d2b2b;overflow:hidden}
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 12% 18%,#e7b7a755,transparent 30%),radial-gradient(circle at 88% 22%,#bfcdb255,transparent 28%),radial-gradient(circle at 50% 90%,#d7c4d955,transparent 32%),#f6efe5}
+.noise{position:fixed;inset:0;z-index:-1;opacity:.035;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.page{display:none;height:100vh;width:100%;padding:75px 20px 90px;overflow-y:auto;align-items:center;justify-content:center}
+.page.active{display:flex;animation:pageIn .5s ease}
+.wrap{width:min(1050px,100%)}.center{text-align:center}
+.badge{display:inline-block;padding:8px 14px;border:1px solid #ffffff22;border-radius:999px;background:#ffffff0c;color:#ffd5e8;font-size:.82rem}
+h1{font-size:clamp(3.2rem,11vw,7rem);line-height:.88;margin:20px 0;letter-spacing:-.06em}
+h2{font-size:clamp(2rem,6vw,4rem);margin:0 0 18px}
+h3{font-size:1.5rem}p{color:#d8d0df;line-height:1.7;font-size:1.05rem}
+.gradient{background:linear-gradient(90deg,#ff75b5,#c084fc,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}
+button{border:0;border-radius:999px;padding:15px 24px;font-size:1rem;font-weight:800;cursor:pointer;background:#fff;color:#120a18;transition:.25s;box-shadow:0 12px 40px #0006}
+button:hover{transform:translateY(-3px) scale(1.02)}.secondary{background:#ffffff12;color:#fff;border:1px solid #ffffff1c}
+.top{position:fixed;z-index:9;top:18px;left:20px;color:#aaa;font-size:.75rem}
+.card{background:#ffffff0b;border:1px solid #ffffff14;border-radius:28px;padding:30px;box-shadow:0 25px 80px #0005;backdrop-filter:blur(14px)}
+.video{aspect-ratio:16/9;border-radius:24px;border:2px dashed #ffffff2c;background:#0008;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.video .placeholder{padding:30px}.video video{width:100%;height:100%;object-fit:cover;display:none}
+.upload{margin-top:16px}input[type=file]{display:none}
+label{display:inline-block;padding:12px 18px;border-radius:999px;background:#ffffff12;border:1px solid #ffffff1c;cursor:pointer}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.photo{aspect-ratio:4/5;border-radius:24px;background:linear-gradient(135deg,#ff75b533,#8b5cf633);border:1px dashed #ffffff2a;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;display:none}.photo span{padding:20px;color:#bbb}
+.letter-wrap{text-align:center}.secret{margin-top:28px}
+.letter{max-width:760px;margin:28px auto 0;text-align:left;background:#fff;color:#241526;border-radius:24px;padding:38px;box-shadow:0 25px 90px #0008;animation:open .7s ease both}
+.letter p{color:#4b3d4e}.signature{font-weight:800;margin-top:28px}
+.confetti{position:fixed;top:-20px;z-index:20;animation:fall 3.2s linear forwards}
+.tiny{font-size:.82rem;color:#91869a}.dots{display:flex;justify-content:center;gap:7px;margin-top:24px}
+.dot{width:7px;height:7px;border-radius:50%;background:#ffffff33}.dot.active{background:#fff}
+@keyframes pageIn{from{opacity:0;transform:translateX(25px)}to{opacity:1;transform:none}}
+@keyframes open{from{opacity:0;transform:translateY(25px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+@media(max-width:700px){.page{padding:65px 16px 100px}.card{padding:22px}.photos{grid-template-columns:1fr}}
+
+/* Mobile-first refinements */
+@media (max-width: 700px){
+  body{overflow:hidden}
+  .page{height:100dvh;min-height:100dvh;padding:55px 18px 35px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .wrap{width:100%}
+  h1{font-size:clamp(3.4rem,19vw,5.5rem)}
+  h2{font-size:clamp(2rem,10vw,3rem);line-height:1.05}
+  p{font-size:.98rem}
+  button{padding:14px 19px;max-width:100%}
+  .top{top:12px;left:14px;font-size:.65rem}
+  .video{width:100%;border-radius:18px}
+  .photos{grid-template-columns:1fr;gap:14px}
+  .photo{aspect-ratio:1/1;max-height:330px}
+  .letter{padding:24px 20px;border-radius:20px}
+}
+
+/* Cute custom palette: warm paper + dusty cherry + sage + plum */
+body{background:#f6efe5;color:#3d2b2b}
+.bg{background:radial-gradient(circle at 12% 18%,#e7b7a755,transparent 30%),radial-gradient(circle at 88% 22%,#bfcdb255,transparent 28%),radial-gradient(circle at 50% 90%,#d7c4d955,transparent 32%),#f6efe5}
+.badge{border-color:#6b4d4d25;background:#fffaf3;color:#765656}
+p{color:#6c5a5a}
+.gradient{background:linear-gradient(90deg,#9b5360,#7d687f,#71866f);-webkit-background-clip:text;background-clip:text;color:transparent}
+button{background:#6f4b52;color:#fff8f0;box-shadow:0 10px 25px #6f4b5225}
+button:hover{background:#7e5960}
+.secondary{background:#fffaf3;color:#6f4b52;border-color:#6f4b5225}
+.video{background:#fffaf3;border-color:#9b777733;box-shadow:0 20px 60px #6f4b5212}
+.tiny{color:#927f7f}
+.top{color:#806c6c}
+.letter{background:#fffaf3;color:#3d2b2b;box-shadow:0 25px 70px #6f4b5218}
+.letter p{color:#655353}
+@media(max-width:700px){.page{background:transparent}.video{background:#fffaf3}}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="noise"></div>
+<div class="top">A LITTLE BIRTHDAY SURPRISE FOR PIIDIII</div>
+
+<section class="page active">
+<div class="wrap center">
+<span class="badge">a tiny internet surprise for Piidiii ✨</span>
+<h1>For <span class="gradient">Deeksha</span> ✨</h1>
+<p>You have successfully completed another year of being iconic, annoying, chaotic... and somehow still my bestie. ✨</p>
+<button onclick="go(1);confetti()">okay, let’s do this 🫣</button>
+<p class="tiny">Everything has its own page. Because one page wasn't chaotic enough. 💀</p>
+</div>
+</section>
+
+<section class="page">
+<div class="wrap center">
+<span class="badge">SYSTEM MESSAGE #001</span>
+<h2>HAPPY BIRTHDAY<br><span class="gradient">PIIDIII!!! 🎂</span></h2>
+<p>Today is officially your day, so I made you a tiny corner of the internet. 🥹</p>
+<p><b>Unfortunately, being your bestie means I am legally required to bully you too. 💀</b></p>
+<button onclick="confetti()">cause a little chaos 🎉</button>
+<br><br><button class="secondary" onclick="go(2)">let’s continue, shall we? ✨</button>
+</div>
+</section>
+
+
+
+
+
+<section class="page">
+<div class="wrap letter-wrap">
+<span class="badge">⚠️ FINAL LEVEL</span>
+<h2>okay... one serious minute. ✨</h2>
+<p>There is one thing I really wanted you to know.</p>
+<div class="secret"><button onclick="openLetter()">✨ READ THIS WHEN YOU ARE FREE</button></div>
+<div class="letter" id="letter" style="display:none">
+<h3>Dear Piidiii, ✨</h3>
+<p id="letterText">Happiest b'day to the kindest soul i have ever met 🥹 may your life filled with a lot of happiness, prosperity and yes bhut saara bori bhar k paisaaa (laalchi deeksha) aur khub saari chizzi jo ki obviously tm thora sa khake bologi ki pet bhr gya.<br><br>I'll pray you achieve everything you want in ur lyf a handsome pati, that concert ticket, you may learn a lot of languages and we'll always call you when we want to know the meaning of any language, and yes that Japan Trip.<br><br>Always be the kindest soul with a lots of attitude .Aise hi khush rho muskurati rho aur haaa attitude dikhati rho attitude queen 🤣<br>And hmari dosti hmaesa aisi hi bni rahe tm mere se hmesa debate krti rho aur haa us din jaise digestion wale topic pe har gyi thi mere se hmesa wese mai jeet taa rhu (Loser) 🤣 aur haaa mai hmesaa hi irritate krunga tumko aur tm mera kuch v nii ukahd paaogi😈<br><br>And yes at last whenever you need any type of help or assistance just call or message me I'll be there ✨ cause you know what?<br>Fake People come and go but this (friendship) is for life.</p>
+<p class="signature">— Your bestie ✨</p>
+</div>
+<br><br>
+<button class="secondary" onclick="go(0)">↻ make me laugh again ↻</button>
+</div>
+</section>
+
+<script>
+let currentPage = 0;
+const pages = Array.from(document.querySelectorAll('.page'));
+
+function go(pageNumber) {
+  if (pageNumber < 0 || pageNumber >= pages.length) return;
+  pages.forEach((page, index) => {
+    page.classList.toggle('active', index === pageNumber);
+  });
+  currentPage = pageNumber;
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function confetti() {
+  const symbols = ['🎉','✨','✨','🎂','🥳','💫','✨','⭐'];
+  for (let i = 0; i < 55; i++) {
+    const e = document.createElement('div');
+    e.className = 'confetti';
+    e.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    e.style.left = Math.random() * 100 + 'vw';
+    e.style.fontSize = (12 + Math.random() * 18) + 'px';
+    e.style.animationDelay = Math.random() * 1.2 + 's';
+    document.body.appendChild(e);
+    setTimeout(() => e.remove(), 4500);
+  }
+}
+
+function openLetter() {
+  const letter = document.getElementById('letter');
+  if (!letter) return;
+  letter.style.display = 'block';
+  letter.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  confetti();
+}
+
+// Always start on the first page.
+go(0);
+</script>
+</body>
+</html>
